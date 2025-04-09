@@ -38,6 +38,7 @@ function main(Data)
 --    }
    
 	local JS = json.serialize{data=Result}
+   trace(Result)
 
    return JS
 end 
