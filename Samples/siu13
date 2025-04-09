@@ -1,0 +1,23 @@
+MSH|^~\&amp;|SENDING APP|SENDING FAC|RECEIVING|RECEIVING FAC|1997052711090000||SIU^S13|1055|P| 2.3||
+
+SCH|1|36996|||||||30|MIN|^^^199705271115||||||||||||||1^SCH
+
+NTE|1||This is a Display Note.
+
+PID|||556301^^^^MRN1||WILLIAMS^JACK^^^^||19720324|M|||123 MAIN ST^^PRIOR LAKE^MN^22334^|| 271-9000||||||333-44-4433|||||||||||N
+
+RGS|1||1^INTERNAL MEDICINE
+
+AIS|1||001^OFFICE VISIT
+
+NTE|1||These are patient instructions for visit type 001
+
+NTE|2||Fast 24 hours before the appointment 
+
+AIG|1||399^RESOURCE^ONE^^^^|||||199705271130|15|MIN|15|MIN
+
+NTE|1||Resource Specific Notes
+
+AIP|1||400^FREDRICKS^TINA^^^^|||199705271115|0|MIN|15|MIN
+
+NTE|1||Appointment notes pertaining to a provider
