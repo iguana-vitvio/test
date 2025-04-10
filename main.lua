@@ -1,4 +1,4 @@
-local map = require "mappings.SIUS12"
+-- local map = require "mappings.SIUS12"
 -- local IsFiltered = require "filter"
 
 local function ExtractSurgeryInfo(Data)
