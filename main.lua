@@ -4,41 +4,22 @@ local map = require "mappings.SIUS12"
 local function ExtractSurgeryInfo(Data)
    local Out = {}
    
+   Out.MRN = Data.PATIENT_SIUS27[1].PID[2]
 	Out.PatientName = Data.PATIENT_SIUS27[1].PID[5][1]
+   Out.Duration = Data.RESOURCES_SIUS27[1].GENERAL_RESOURCE[1].AIG[11]
+   Out.DurationUnits = Data.RESOURCES_SIUS27[1].GENERAL_RESOURCE[1].AIG[12]
+	Out.StartDateTime = Data.RESOURCES_SIUS27[1].GENERAL_RESOURCE[1].AIG[8]
+   Out.OrId = Data.RESOURCES_SIUS27[1].GENERAL_RESOURCE[1].AIG[3][1]
+   Out.OrName = Data.RESOURCES_SIUS27[1].GENERAL_RESOURCE[1].AIG[3][2]
    
    return Out
 end
 
--- function main(Data)
--- 	--trace('hello')
---       -- _G to see available func
--- 	local InboundMsg, MsgType =    hl7.parse{data=Data,vmd='siu.vmd'}
---    trace(Data, MsgType)
-
-   
-   
-   
---    queue.push{data=Data}
--- end
 function main(Data)
    Data = hl7.parse{data=Data,vmd='siu.vmd'}
    local Result = ExtractSurgeryInfo(Data)
-   trace(Result)
-   -- Create a JSON formatted output
 
---    local Output = {
---       scheduledSurgery = Result.ScheduledSurgery,
---       startTime = Result.StartTime,
---       endTime = Result.EndTime,
---       duration = Result.Duration .. " " .. Result.DurationUnits,
---       surgeonsBlock = Result.SurgeonsBlock,
---       practitioner = Result.Practitioner,
---       patientName = Result.PatientName,
---       mrn = Result.MRN
---    }
-   
 	local JS = json.serialize{data=Result}
-   trace(Result)
 
-   return JS
+   queue.push{data=JS}
 end 
